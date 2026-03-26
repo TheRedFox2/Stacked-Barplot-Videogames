@@ -2,7 +2,7 @@
 
 ## Stacked Barplot Videogames Sales
 <div style="text-align: center; max-width: 900px; margin: 0 auto;">
-    <img src="Stacked_Barplot_Videogames.png" alt="Stacked Barplot Videogames" style="width: 100%; height: auto; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
+    <img src="Stacked_Barplot_Videogames.png" alt="Stacked Barplot Videogames" style="width: 80%; height: auto; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
     <p style="font-size: 0.9em; color: #666; font-style: italic;"></p>
 </div>
 
