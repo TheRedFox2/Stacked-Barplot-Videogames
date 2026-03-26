@@ -1,0 +1,74 @@
+---
+title: "Videogames Stacked Barplot"
+output: html_document
+date: "2026-03-23"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Cargo librerías y csv
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+df <- read.csv("Video_Games_Sales_Cleaned.csv")
+
+```
+
+Vamos a filtrar las plataformas de interés y los años
+
+```{r}
+
+df_filtrado <- df %>% 
+  filter(release_year >= 2005, 2015 >= release_year) %>%
+  filter(!is.na(console), !is.na(genre)) %>%
+  filter(total_sales > 0.1)
+
+top_platforms <- df %>%
+  count(console, sort = TRUE) %>%
+  slice_head(n = 6) %>%
+  pull(console)
+
+top_platforms[6] <- "X360"
+  
+df_filtrado <- df_filtrado %>%
+  filter(console %in% top_platforms)
+
+```
+
+Una vez filtrado el df, vamos a hacer el plot
+
+```{r}
+#Defino los colores que pondré a cada
+color = c("#381D2A","#EBE088","#8CC7FF","#233C53","#F39B6D","#96C052")
+
+p <- ggplot(df_filtrado) +
+  geom_bar(aes(x = release_year, y = total_sales, fill = console), 
+           position = "stack", stat = "identity") +
+  theme_minimal() +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    panel.grid.major.y = element_line(color = "grey"),
+    legend.position = "top") +
+  scale_fill_manual(values = color) + 
+  xlab("Año de salida") +
+  ylab("Ventas totales (Millones $)") +
+  scale_x_continuous(breaks = seq(2005, 2017, by = 1)) +
+  labs(fill = "Consola")
+  
+
+ggsave(p, filename = "Stacked Barplot Videogames.pdf")
+png(filename="Stacked Barplot Videogames.png")
+p
+dev.off
+```
+
+
+
+
+
+
