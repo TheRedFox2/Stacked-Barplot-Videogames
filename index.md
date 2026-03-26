@@ -1,4 +1,4 @@
-# Visualización de ventas de videojuegos en los años 2005-207 para las distintas plataformas
+# Visualización de ventas de videojuegos en los años 2005-2017 para las distintas plataformas
 
 ## Stacked Barplot Videogames Sales
 <div style="text-align: center; max-width: 700px; margin: 0 auto;">
