@@ -7,3 +7,8 @@
 </div>
 
 Se aprecia un stacked barplot sobre las ventas en millones de USD de videojuegos entre los años 2005-2017 dividido en las principales consolas de la época.
+<div>
+    <p style="font-size: 12px; color: #666;">
+        Fuente: Datos obtenidos de kaggle: <a, href=https://www.kaggle.com/datasets/bhushandivekar/video-game-sales-and-industry-data-1980-2024,target="_blank" style="color: #007bff;"> Video Games Sales and Industry Data</a>
+    </p>
+</div>
